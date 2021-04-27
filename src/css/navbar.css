@@ -11,10 +11,10 @@ nav{
 
 .nav-item{
     display: none;
-    /* 
-    flex-basis: 40%;
-    flex-direction: row;  
-    justify-content: space-between; */
+}
+.nav-item .sub-menu{
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
 .btn-signIn{
@@ -23,4 +23,21 @@ nav{
 }
 .btn-toogleMenu{
     display: block;
+}
+
+@media only screen and (min-width: 750px) {
+
+    .nav-item{
+        display: flex;
+        flex-basis: 40%;
+        flex-direction: row;  
+        justify-content: space-between; 
+    }
+    .btn-toogleMenu{
+        display: none;
+    }
+    .btn-signIn{
+        font-size: 1.1rem;
+        display: block;
+    }
 }

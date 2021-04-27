@@ -1,5 +1,5 @@
 .modal{
-    display: block;
+    display: none;
     position: fixed;
     z-index: 2;
     left: 0;
@@ -10,13 +10,18 @@
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+.modal-display{
+  display: block;
+}
 
 .modal-content {
+    border-radius: 5px;
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px ;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    min-height: 80%;
 }
 .close {
     color: #aaa;
@@ -28,5 +33,38 @@
   .close:hover,
   .close:focus {
     text-decoration: none;
+    color: red;
     cursor: pointer;
   }
+  .subMenu{
+    padding-top: 2rem;
+  }
+  .item-page{
+    text-transform: capitalize;
+  }
+  .subMenu-item a{
+    color: rgb(111, 106, 106);
+    text-transform: capitalize;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  .modal-content .subMenu ul{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 0.5rem;
+    align-items: center;
+    padding-inline-start: 0;
+  }
+
+
+.item-icon{
+  align-items: center;
+  padding-right: 0.75rem;
+}
+
+@media only screen and (min-width: 750px) {
+  .modal-display{
+    display: none;
+  }
+}

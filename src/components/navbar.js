@@ -1,11 +1,14 @@
 import logo from './../images/logo.svg';
 import { FaBars } from 'react-icons/fa';
 import '../css/navbar.css';
+import {GetCurrentValContext} from '../context/AppContext';
+import sublinks from '../data';
 
 
 const Navbar = () =>{
-    const handleOnCLick = () =>{
-        console.log("alo here")
+    const {handleOpenModal} = GetCurrentValContext();
+    const handleMouseEnter = (e) =>{
+        console.log(e.target.id)
     }
     return (
         <nav>
@@ -13,13 +16,13 @@ const Navbar = () =>{
                 <img src={logo} alt="logo"/>
             </div>
             <div className="nav-item">
-                <div className="sub-menu-product">Products</div>
-                <div className="sub-menu-developer">developers</div>
-                <div className="sub-menu-company">company</div>
+                {
+                    sublinks.map((item,index)=><div className="sub-menu" key={index} id={index}  onMouseEnter={handleMouseEnter}>{item.page}</div>)
+                }
             </div>
             <div className="nav-action">
                 <button className="btn-signIn">Sign in</button>
-                <FaBars className="btn-toogleMenu" onClick={handleOnCLick}></FaBars>
+                <FaBars className="btn-toogleMenu" onClick={handleOpenModal}></FaBars>
             </div>
         </nav>
     )
